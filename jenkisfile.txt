@@ -1,0 +1,28 @@
+groovy
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from Git
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your web application (e.g., npm install, npm build)
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy your application to a server or hosting platform
+                sh 'rsync -avz ./dist/ user@server:/path/to/deploy'
+            }
+        }
+    }
+}
