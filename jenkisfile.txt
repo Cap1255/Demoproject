@@ -21,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy your application to a server or hosting platform
-                sh 'rsync -avz ./dist/ user@server:/path/to/deploy'
+               http://localhost:8000/job/MyWebApp-CI_CD/
             }
         }
     }
